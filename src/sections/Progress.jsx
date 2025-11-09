@@ -1,4 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
+import CardioCareDemonstration from '../assets/CardioCareDemonstration.mp4';
+import prototype1 from '../assets/cardiocareprototype1.jpg';
+import prototype2 from '../assets/cardiocareprototype2.jpg';
+import prototype3 from '../assets/cardiocareprototype3.jpg';
 
 const Progress = () => {
   const [activeTab, setActiveTab] = useState('action');
@@ -122,45 +126,99 @@ const Progress = () => {
 
         {/* Tab Content */}
         <div className="relative">
-          {/* CardioCare in Action Tab */}
-          {activeTab === 'action' && (
+        {activeTab === 'action' && (
             <div className="animate-fadeIn">
-              <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl">
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl">
                 <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-                  See CardioCare in Action
+                See CardioCare in Action
                 </h3>
                 <p className="text-lg text-gray-600 mb-8">
-                  See how CardioCare brings hospital-grade cardiac recovery
-                  home—right from setup to personalized rehab in action.
+                See how CardioCare brings hospital-grade cardiac recovery
+                home—right from setup to personalized rehab in action.
                 </p>
 
-                {/* Placeholder for demo video/images */}
-                <div className="bg-gradient-to-br from-blue-100 to-teal-100 rounded-xl p-12 flex flex-col items-center justify-center min-h-[400px]">
-                  <svg
-                    className="w-24 h-24 text-blue-600 mb-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                {/* Unified Gradient Section */}
+                <div className="bg-gradient-to-br from-blue-100 to-teal-100 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center md:items-center justify-between gap-10">
+                
+                {/* LEFT: CardioCare Demo Video + Description */}      
+                <div className="flex flex-col items-center md:items-center text-center md:text-center w-full md:w-[67%] md:pl-0">
+                    <video
+                    src={CardioCareDemonstration}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="rounded-2xl shadow-xl max-h-[80vh] w-auto object-contain object-cover scale-[.95]"
+                    style={{ aspectRatio: '9 / 17.5' }}
                     />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <p className="text-xl font-semibold text-gray-700 mb-2">
-                    Demo Video Coming Soon
-                  </p>
-                  <p className="text-gray-600">
-                    Watch how CardioCare transforms cardiac rehabilitation
-                  </p>
+                    <p className="text-gray-600 max-w-md">
+                    Experience how CardioCare redefines remote cardiac rehabilitation — personalized, data-driven, and accessible anywhere. Early prototype demo showcasing AI-driven rehab programming with real-time ECG monitoring via our custom wearable device.
+                    </p>
+                </div>
+                <div className="hidden md:block w-[3px] bg-gray-300/50 self-stretch rounded-full" />
+
+                {/* RIGHT: Prototype Wearables Section */}
+                <div className="flex flex-col items-center md:items-center w-full md:w-[55%] md:pl-0">
+                <div className="flex flex-col justify-center gap-12 w-full">
+
+                    {/* Prototype 1 */}
+                    <div className="flex flex-col items-center w-full gap-4">
+                    {/* Header (centered between image + caption) */}
+                    <p className="text-gray-700 font-semibold text-lg text-center">
+                        V0 • May 2024 – Oct 2024
+                    </p>
+
+                    {/* Image + Caption Row */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
+                        <img
+                        src={prototype1}
+                        alt="Prototype v1"
+                        className="rounded-xl shadow-lg object-contain w-full sm:w-[55%] h-auto"
+                        />
+                        <p className="text-gray-600 font-light text-lg text-center sm:text-left sm:w-[45%]">
+                        Basic proof-of-concept: ECG paired with RandomForest for active cardiac stress screening.
+                        </p>
+                    </div>
+                    </div>
+
+                    {/* Prototype 2 */}
+                    <div className="flex flex-col items-center w-full gap-4">
+                    <p className="text-gray-700 font-semibold text-lg text-center">
+                        V1 • November 2024 – March 2025
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
+                        <img
+                        src={prototype2}
+                        alt="Prototype v2"
+                        className="rounded-xl shadow-lg object-contain w-full sm:w-[55%] h-auto"
+                        />
+                        <p className="text-gray-600 font-light text-lg text-center sm:text-left sm:w-[45%]">
+                        Hand-held casing, battery, and mobile app with 20+ hours of  monitoring with TensorFlow Lite deep learning.
+                        </p>
+                    </div>
+                    </div>
+
+                    {/* Prototype 3 */}
+                    <div className="flex flex-col items-center w-full gap-4">
+                    <p className="text-gray-700 font-semibold text-lg text-center">
+                        V2 • May 2025 – Present
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
+                        <img
+                        src={prototype3}
+                        alt="Prototype v3"
+                        className="rounded-xl shadow-lg object-contain w-full sm:w-[55%] h-auto"
+                        />
+                        <p className="text-gray-600 font-light text-lg text-center sm:text-left sm:w-[45%]">
+                        ECG/EMG multimodal screening capabilities. 99% accuracy in rehab programming.
+                        </p>
+                    </div>
+                    </div>
+
+                </div>
+                </div>
                 </div>
 
                 {/* Achievement Badge */}

@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
+import anshumanimage from "../assets/anshumanheadshot.jpeg";
+import ayanimage from "../assets/ayanheadshot.jpg";
 
 const Team = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,16 +31,16 @@ const Team = () => {
     {
       name: 'Anshuman Garg',
       role: 'Co-founder',
-      bio: 'Anshuman Garg is a senior at Westwood High School and enjoys coding, robotics and playing saxophone.',
-      interests: ['Coding', 'Robotics', 'Saxophone'],
-      image: null, // Placeholder for actual image
+      bio: 'Anshuman Garg is a senior at Westwood High School and enjoys coding, robotics and playing saxophone. As a computational biology researcher at Georgia Tech, he is passionate about bridging science, technology, and society to solve real-world healthcare challenges.',
+      interests: ['Coding', 'Robotics', 'Saxophone', 'Research', 'Accessible Healthcare Innovation'],
+      image: anshumanimage, // Placeholder for actual image
     },
     {
       name: 'Ayan Malpani',
       role: 'Co-founder',
-      bio: 'Ayan Malpani is a Round Rock High School senior who enjoys playing soccer, creative writing, and traveling worldwide.',
-      interests: ['Soccer', 'Creative Writing', 'Travel'],
-      image: null, // Placeholder for actual image
+      bio: 'Ayan Malpani is a Round Rock High School senior who enjoys playing soccer, creative writing, and traveling worldwide. Achieving 1st Place at the DECA ICDC international competition, he is passionate about entrepreneurship in healthcare technology.',
+      interests: ['Soccer', 'Creative Writing', 'Travel', 'ICDC Winner', 'Entrepreneurship'],
+      image: ayanimage, // Placeholder for actual image
     },
   ];
 
@@ -46,7 +48,7 @@ const Team = () => {
     <section
       ref={sectionRef}
       id="team"
-      className="py-20 bg-gradient-to-b from-white to-gray-50"
+      className="py-20 bg-gradient-to-b from-white to-blue-50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -81,8 +83,12 @@ const Team = () => {
               }}
             >
               {/* Profile Image Placeholder */}
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 flex items-center justify-center text-white text-5xl font-bold shadow-lg transform group-hover:scale-105 transition-transform duration-300">
-                {founder.name.split(' ').map(n => n[0]).join('')}
+              <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300">
+              <img
+                  src={founder.image}
+                  alt={founder.name}
+                  className="w-full h-full object-cover"
+              />
               </div>
 
               {/* Name and Role */}
@@ -113,26 +119,6 @@ const Team = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Georgia Tech Collaboration Badge */}
-        <div
-          className={`mt-16 max-w-4xl mx-auto bg-gradient-to-r from-yellow-400 to-orange-400 rounded-2xl p-8 shadow-xl text-center transform transition-all duration-700 delay-500 ${
-            isVisible
-              ? 'translate-y-0 opacity-100'
-              : 'translate-y-10 opacity-0'
-          }`}
-        >
-          <div className="text-white">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-3">
-              🎓 Georgia Tech Research Collaboration
-            </h3>
-            <p className="text-lg sm:text-xl opacity-90">
-              Our team works closely with Georgia Tech researchers in
-              computational biology and signal processing to ensure CardioCare
-              is grounded in cutting-edge science and validated methodologies.
-            </p>
-          </div>
         </div>
 
         {/* Vision Statement */}

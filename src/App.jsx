@@ -8,6 +8,7 @@ import Progress from './sections/Progress';
 import Impact from './sections/Impact';
 import Team from './sections/Team';
 import Contact from './sections/Contact';
+import ValidationSection from './sections/Validation';
 
 function App() {
   // Add smooth scrolling behavior
@@ -28,6 +29,7 @@ function App() {
         <Progress />
         <Impact />
         <Team />
+        <ValidationSection />
         <Contact />
       </main>
 
