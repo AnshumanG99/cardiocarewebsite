@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import cardiocarelogo from '../assets/cardiocarelogo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,9 +47,11 @@ const Navbar = () => {
             className="flex-shrink-0 cursor-pointer"
             onClick={() => scrollToSection('hero')}
           >
-            <h1 className="text-2xl font-bold text-blue-600">
-              Cardio<span className="text-teal-500">Care</span>
-            </h1>
+            <img
+              className="h-10 w-auto"
+              src={cardiocarelogo}
+              alt="CardioCare Logo"
+            />
           </div>
 
           {/* Desktop Navigation */}
