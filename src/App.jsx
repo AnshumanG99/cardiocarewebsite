@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './sections/Hero';
@@ -35,6 +36,9 @@ function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Vercel Analytics */}
+      <Analytics />
     </div>
   );
 }

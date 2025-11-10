@@ -224,6 +224,15 @@ const Contact = () => {
                   <span className="px-4 py-2 bg-white/20 rounded-lg text-sm font-medium">
                     Diamond Challenge
                   </span>
+                  <span className="px-4 py-2 bg-white/20 rounded-lg text-sm font-medium">
+                    DECA International Career Development Conference
+                  </span>
+                  <span className="px-4 py-2 bg-white/20 rounded-lg text-sm font-medium">
+                    Global Cardiologists
+                  </span>
+                  <span className="px-4 py-2 bg-white/20 rounded-lg text-sm font-medium">
+                    Conrad Challenge
+                  </span>
                 </div>
               </div>
             </div>
