@@ -92,7 +92,7 @@ const Progress = () => {
             CardioCare Progress
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            From concept to reality—see how we're revolutionizing cardiac
+            From concept to reality.  <br /> See how we're revolutionizing cardiac
             rehabilitation.
           </p>
         </div>
@@ -139,7 +139,7 @@ const Progress = () => {
                 </h3>
                 <p className="text-lg text-center text-gray-600 mb-8">
                   See how CardioCare brings hospital-grade cardiac recovery
-                  home—right from setup to personalized rehab in action.
+                  home, right from setup to personalized rehab in action.
                 </p>
 
                 {/* Unified Gradient Section */}
@@ -165,7 +165,7 @@ const Progress = () => {
                       style={{ aspectRatio: '9 / 17.5' }}
                     />
                     <p className="text-gray-600 max-w-md mt-4">
-                      Experience how CardioCare redefines remote cardiac rehabilitation — personalized, data-driven, and accessible anywhere. Early prototype demo showcasing AI-driven rehab programming with real-time ECG monitoring via our custom wearable device.
+                      Experience how CardioCare redefines remote cardiac rehabilitation: personalized, data-driven, and accessible anywhere. Early prototype demo showcasing AI-driven rehab programming with real-time ECG monitoring via our custom wearable device.
                     </p>
                   </div>
                   <div className="hidden md:block w-[3px] bg-gray-300/50 self-stretch rounded-full" />

@@ -112,7 +112,7 @@ const Contact = () => {
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Interested in CardioCare? Whether you're a healthcare provider,
-            investor, or potential partner—we'd love to hear from you.
+            investor, or potential partner, we'd love to hear from you.
           </p>
         </div>
 

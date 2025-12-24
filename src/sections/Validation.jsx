@@ -44,7 +44,7 @@ const ValidationSection = () => {
     {
       name: 'Dr. Bharati Kolte',
       title: 'Medical Director and Educator, GAIN Health Clinic, TX',
-      quote: "We see this as an essential next step — remote monitoring platforms like CardioCare will redefine outpatient rehabilitation, giving patients confidence in recovery.",
+      quote: "We see this as an essential next step. Remote monitoring platforms like CardioCare will redefine outpatient rehabilitation, giving patients confidence in recovery.",
       image: clinic3,
     },
   ];

@@ -112,7 +112,7 @@ const Solution = () => {
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             CardioCare brings expert-guided cardiac recovery to your
-            fingertips—combining cutting-edge AI with hospital-grade monitoring.
+            fingertips, <br />combining cutting-edge AI with hospital-grade monitoring.
           </p>
         </div>
 
