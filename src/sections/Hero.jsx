@@ -85,7 +85,7 @@ const Hero = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              <span className="font-medium">$50K Funded</span>
+              <span className="font-medium">Thousands in Funding</span>
             </div>
             <div className="flex items-center gap-2">
               <svg
