@@ -102,7 +102,7 @@ const Impact = () => {
             Social Impact of CardioCare
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Breaking down barriers to cardiac rehabilitation—one heart at a
+            Breaking down barriers to cardiac rehabilitation one heart at a
             time.
           </p>
         </div>
@@ -179,7 +179,7 @@ const Impact = () => {
               Making Cardiac Rehabilitation Accessible to Everyone
             </h3>
             <p className="text-lg sm:text-xl mb-8 opacity-90">
-              CardioCare is on a mission to democratize cardiac care—removing
+              CardioCare is on a mission to democratize cardiac care, removing
               financial, geographic, and systemic barriers that prevent millions
               from accessing life-saving rehabilitation.
             </p>

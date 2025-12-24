@@ -37,8 +37,8 @@ const Hero = () => {
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-            AI-driven, affordable cardiac recovery for every heart—without
-            insurance delays, long commutes, or financial stress.
+            AI-driven, affordable cardiac recovery for every heart. <br />
+            No insurance delays. No long commutes. No financial stress.
           </p>
 
           {/* CTA Buttons */}

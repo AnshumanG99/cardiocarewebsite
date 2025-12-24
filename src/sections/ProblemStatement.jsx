@@ -65,7 +65,7 @@ const ProblemStatement = () => {
           }`}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Cardiac Rehab Saves Lives—
+            Cardiac Rehab Saves Lives
             <br />
             <span className="text-red-600">But Only 20-30% Access It</span>
           </h2>
@@ -113,7 +113,7 @@ const ProblemStatement = () => {
               CardioCare Changes Everything
             </h3>
             <p className="text-lg sm:text-xl mb-6 opacity-90">
-              We're breaking down every barrier to cardiac rehabilitation—making
+              We're breaking down every barrier to cardiac rehabilitation, making
               it accessible, affordable, and available to everyone who needs it.
             </p>
             <div className="flex justify-center">
