@@ -1,16 +1,62 @@
-# React + Vite
+# CardioCare website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing site for CardioCare, an AI-powered home cardiac rehabilitation platform.
+Built with React 19, Vite, Tailwind CSS, React Router, and Framer Motion.
 
-Currently, two official plugins are available:
+## Pages
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Route         | Purpose                                                            |
+| ------------- | ------------------------------------------------------------------ |
+| `/`           | Overview: hero, problem, platform, clinician quotes, progress      |
+| `/platform`   | How the kit and app work, features, technical specs, prototypes   |
+| `/impact`     | The access problem, barriers, global availability, social impact  |
+| `/validation` | Clinician testimonials, what was validated, partner clinics        |
+| `/about`      | Mission, founders, roadmap, recognition                            |
+| `/contact`    | Contact form (`?interest=demo|clinical|partnership|investment`)    |
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Other scripts: `npm run build` (production build to `dist/`), `npm run preview`
+(serve the build locally), `npm run lint`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project layout
+
+```
+src/
+  data/        Site copy and content: nav, stats, testimonials, roadmap, team
+  components/
+    layout/    Navbar, Footer, Layout (route shell), ScrollToTop
+    ui/        Primitives: Button, Container, Section, Eyebrow, Reveal, Seo
+    mocks/     Small product UI vignettes used as illustrations
+    ...        Shared blocks: PageHero, CtaBand, StatGrid, Testimonials, Roadmap
+  pages/       One component per route
+  lib/         Helpers (class joining, contact submission)
+```
+
+Copy lives in `src/data`, so most wording changes do not touch components.
+
+## Design system
+
+- Display type: Instrument Serif. Body and UI: Inter (variable). Both are
+  self-hosted through `@fontsource`.
+- Colours are defined in `tailwind.config.js`: the `ink` navy scale for text and
+  dark surfaces, and `brand.*` accents taken from the logo.
+- Reusable classes (`.display`, `.eyebrow`, `.lede`, `.wash`) are in
+  `src/index.css`.
+
+## Contact form
+
+Set `VITE_CONTACT_ENDPOINT` (see `.env.example`) to POST submissions as JSON to
+a form service or your own API. Without it, the form opens the visitor's email
+client with the message pre-filled.
+
+## Deployment
+
+The site is a single-page app. `vercel.json` rewrites every path to
+`index.html` so deep links work on Vercel. Analytics come from
+`@vercel/analytics`.

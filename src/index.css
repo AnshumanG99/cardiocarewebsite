@@ -2,58 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom animations */
-@layer utilities {
-  .animate-fadeIn {
-    animation: fadeIn 0.5s ease-in-out;
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  body {
+    @apply bg-white font-sans text-ink-900;
+  }
+
+  ::selection {
+    @apply bg-brand-sky/40 text-ink-950;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-blue ring-offset-2 ring-offset-white;
+  }
+
+  img,
+  video {
+    @apply block max-w-full;
   }
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+@layer components {
+  /* Display type: the serif voice used for every headline and pull quote. */
+  .display {
+    @apply font-display font-normal tracking-[-0.02em];
+    line-height: 1.04;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
+  .display em {
+    @apply not-italic;
+    font-style: italic;
+  }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+  .eyebrow {
+    @apply text-[12px] font-medium uppercase tracking-eyebrow text-ink-500;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: #2563eb;
-  border-radius: 5px;
-}
+  .lede {
+    @apply text-lg leading-relaxed text-ink-600 sm:text-xl;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #1d4ed8;
-}
+  /* Soft colour wash used behind hero visuals, in the brand's blue/teal/green. */
+  .wash {
+    background:
+      radial-gradient(42% 55% at 30% 60%, rgba(95, 178, 234, 0.55) 0%, rgba(95, 178, 234, 0) 70%),
+      radial-gradient(40% 50% at 70% 55%, rgba(47, 181, 179, 0.45) 0%, rgba(47, 181, 179, 0) 70%),
+      radial-gradient(38% 45% at 50% 95%, rgba(125, 179, 86, 0.4) 0%, rgba(125, 179, 86, 0) 70%),
+      radial-gradient(30% 35% at 50% 30%, rgba(232, 106, 91, 0.18) 0%, rgba(232, 106, 91, 0) 70%);
+  }
 
-/* Base styles */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Prevent horizontal scroll */
-html, body {
-  overflow-x: hidden;
+  .wash-dark {
+    background:
+      radial-gradient(50% 60% at 50% 100%, rgba(47, 181, 179, 0.35) 0%, rgba(47, 181, 179, 0) 70%),
+      radial-gradient(40% 50% at 20% 110%, rgba(47, 127, 214, 0.35) 0%, rgba(47, 127, 214, 0) 70%),
+      radial-gradient(40% 50% at 80% 110%, rgba(125, 179, 86, 0.25) 0%, rgba(125, 179, 86, 0) 70%);
+  }
 }
