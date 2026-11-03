@@ -1,8 +1,8 @@
 export const problemStats = [
-  { value: '800,000+', label: 'heart attacks every year in the U.S.' },
-  { value: '$5,000+', label: 'average cost of a traditional rehab program' },
-  { value: '20-30%', label: 'of eligible patients ever access cardiac rehab' },
-  { value: '47%', label: 'higher chance of a repeat cardiac event without rehab' },
+  { value: '800,000+', label: 'heart attacks a year in the U.S.' },
+  { value: '$5,000+', label: 'typical cost of a clinic rehab program' },
+  { value: '20-30%', label: 'of eligible patients actually go to rehab' },
+  { value: '47%', label: 'higher chance of another cardiac event without it' },
 ]
 
 export const accessByIncome = [
@@ -14,38 +14,34 @@ export const accessByIncome = [
 export const barriers = [
   {
     name: 'Cost',
-    problem:
-      'A full course of clinic-based rehab runs $5,000 or more, before travel and time off work.',
-    answer:
-      'CardioCare is designed to cost 95% less than traditional rehab, with no recurring clinic fees.',
+    today: 'A full course of clinic rehab costs $5,000 or more, before travel and time off work.',
+    withUs: 'CardioCare is built to cost about 95% less. There are no per-visit fees.',
   },
   {
     name: 'Distance',
-    problem:
-      'Programs mean dozens of supervised sessions over several months, each one a commute to a clinic that may be hours away.',
-    answer:
-      'Every session happens at home. The kit, the plan, and the monitoring travel with the patient.',
+    today:
+      'Rehab means dozens of supervised sessions over a few months. For a lot of people the nearest program is hours away.',
+    withUs: 'Every session is at home. The kit and the app go where you go.',
   },
   {
-    name: 'Insurance delays',
-    problem:
-      'Referrals, prior authorizations, and coverage limits delay enrollment during the weeks when rehab matters most.',
-    answer:
-      'There is nothing to approve. A patient can start the day the kit arrives.',
+    name: 'Insurance',
+    today:
+      'Referrals and prior authorizations can take weeks, right after the heart attack, when rehab matters most.',
+    withUs: 'There is nothing to authorize. You can start the day the kit arrives.',
   },
 ]
 
-export const impactPillars = [
+export const whoItHelps = [
   {
-    title: 'Reaches underserved communities',
-    body: 'An at-home alternative for the regions and neighborhoods where traditional rehab simply is not offered.',
+    title: 'People far from a clinic',
+    body: 'Rural areas, and whole countries, where there is no rehab program within reach.',
   },
   {
-    title: 'Starts immediately',
-    body: 'No referrals or approvals. Faster rehab lowers the chance of a repeat event and the long-term cost of care.',
+    title: 'People who cannot wait',
+    body: 'Rehab matters most in the weeks right after a heart attack. With CardioCare there is no referral or approval to wait on.',
   },
   {
-    title: 'Affordable by design',
-    body: 'Built to remove the financial, geographic, and systemic barriers that keep most patients out.',
+    title: 'People who cannot spend $5,000',
+    body: 'The kit and the app are built to cost about 95% less than a clinic program.',
   },
 ]

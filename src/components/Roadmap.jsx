@@ -1,14 +1,13 @@
 import { Check } from 'lucide-react'
 
 import { cn } from '../lib/cn'
-import Reveal from './ui/Reveal'
 
-const statusLabel = { completed: 'Completed', current: 'In progress', upcoming: 'Upcoming' }
+const statusLabel = { completed: 'Done', current: 'Now', upcoming: 'Next' }
 
 function Marker({ status }) {
   if (status === 'completed') {
     return (
-      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-ink-900 text-white">
+      <span className="bg-gradient-brand flex h-6 w-6 items-center justify-center rounded-full text-white">
         <Check className="h-3.5 w-3.5" strokeWidth={3} aria-hidden="true" />
       </span>
     )
@@ -16,83 +15,74 @@ function Marker({ status }) {
   if (status === 'current') {
     return (
       <span className="relative flex h-6 w-6 items-center justify-center">
-        <span className="absolute inset-1 rounded-full bg-brand-blue animate-pulse-ring" />
-        <span className="relative h-3 w-3 rounded-full bg-brand-blue" />
+        <span className="absolute inset-1 rounded-full bg-teal-glow animate-pulse-ring" />
+        <span className="relative h-3 w-3 rounded-full bg-teal-glow" />
       </span>
     )
   }
-  return <span className="flex h-6 w-6 rounded-full bg-white ring-1 ring-inset ring-ink-300" />
+  return <span className="flex h-6 w-6 rounded-full border-2 border-white/25" />
 }
 
-function StatusPill({ status }) {
-  return (
-    <span
-      className={cn(
-        'rounded-full px-2.5 py-0.5 text-xs font-medium',
-        status === 'completed' && 'bg-ink-900/[0.06] text-ink-700',
-        status === 'current' && 'bg-brand-blue/10 text-brand-blue',
-        status === 'upcoming' && 'bg-white text-ink-500 ring-1 ring-inset ring-ink-200',
-      )}
-    >
-      {statusLabel[status]}
-    </span>
-  )
-}
-
-/** Vertical timeline of the company roadmap. */
+/** Vertical timeline. */
 export default function Roadmap({ items }) {
   return (
-    <ol className="space-y-0">
+    <ol>
       {items.map((item, index) => {
         const last = index === items.length - 1
         return (
-          <Reveal as="li" key={item.phase} delay={index * 0.05} className="flex gap-5 sm:gap-8">
+          <li key={item.phase} className="flex gap-5 sm:gap-7">
             <div className="flex flex-col items-center">
               <Marker status={item.status} />
-              {!last && <span className="mt-2 w-px flex-1 bg-ink-900/10" aria-hidden="true" />}
+              {!last && <span className="mt-2 w-px flex-1 bg-white/12" aria-hidden="true" />}
             </div>
-            <div className={cn('pb-10', last && 'pb-0', item.status === 'upcoming' && 'opacity-70')}>
-              <p className="text-sm text-ink-500">{item.dates}</p>
-              <div className="mt-1.5 flex flex-wrap items-center gap-3">
-                <h3 className="text-xl font-medium text-ink-900">
-                  Phase {index + 1}: {item.phase}
-                </h3>
-                <StatusPill status={item.status} />
-              </div>
-              <p className="mt-2 max-w-xl text-ink-600">{item.body}</p>
+            <div className={cn('pb-10', last && 'pb-0')}>
+              <p className="text-[14px] text-white/50">
+                {item.dates}
+                <span className="mx-2 text-white/20" aria-hidden="true">
+                  |
+                </span>
+                <span className={cn('font-semibold', item.status === 'current' ? 'text-teal-glow' : 'text-white/40')}>
+                  {statusLabel[item.status]}
+                </span>
+              </p>
+              <h3 className="mt-1 text-[21px] font-bold tracking-[-0.01em] text-white">
+                {index + 1}. {item.phase}
+              </h3>
+              <p className="copy mt-1.5 max-w-[560px]">{item.body}</p>
             </div>
-          </Reveal>
+          </li>
         )
       })}
     </ol>
   )
 }
 
-/** Compact horizontal version for overview pages. */
-export function RoadmapStepper({ items }) {
+/** Compact five-column version. */
+export function PhaseRow({ items }) {
   return (
-    <ol className="grid gap-6 sm:grid-cols-5 sm:gap-4">
+    <ol className="grid gap-5 sm:grid-cols-5 sm:gap-4">
       {items.map((item, index) => (
-        <Reveal as="li" key={item.phase} delay={index * 0.05} className="flex gap-4 sm:block">
+        <li key={item.phase} className="flex gap-4 sm:block">
           <span
             className={cn(
-              'block w-1 shrink-0 rounded-full sm:h-1 sm:w-full',
-              item.status === 'completed' && 'bg-ink-900',
-              item.status === 'current' && 'bg-brand-blue',
-              item.status === 'upcoming' && 'bg-ink-200',
+              'block w-1 shrink-0 rounded-full sm:h-1.5 sm:w-full',
+              item.status === 'completed' && 'bg-gradient-brand',
+              item.status === 'current' && 'bg-teal-glow shadow-[0_0_18px_rgba(94,234,212,0.7)]',
+              item.status === 'upcoming' && 'bg-white/15',
             )}
             aria-hidden="true"
           />
           <div className="sm:mt-4">
-            <p className={cn('text-xs font-medium uppercase tracking-eyebrow', item.status === 'current' ? 'text-brand-blue' : 'text-ink-400')}>
-              Phase {index + 1}
+            <p className={cn('text-[12px] font-bold', item.status === 'current' ? 'text-teal-glow' : 'text-white/40')}>
+              {index + 1}
+              {item.status === 'current' && ' (now)'}
             </p>
-            <p className={cn('mt-1 font-medium', item.status === 'upcoming' ? 'text-ink-500' : 'text-ink-900')}>
+            <p className={cn('mt-0.5 text-[15px] font-bold leading-snug', item.status === 'upcoming' ? 'text-white/55' : 'text-white')}>
               {item.phase}
             </p>
-            <p className="mt-1 text-sm text-ink-500">{item.dates}</p>
+            <p className="mt-1 text-[13px] text-white/50">{item.dates}</p>
           </div>
-        </Reveal>
+        </li>
       ))}
     </ol>
   )

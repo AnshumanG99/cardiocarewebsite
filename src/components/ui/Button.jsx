@@ -1,48 +1,43 @@
-import { ArrowRight } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { cn } from '../../lib/cn'
 
 const base =
-  'group inline-flex items-center justify-center gap-2 font-medium transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-60'
+  'inline-flex items-center justify-center font-semibold transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-50'
 
 const variants = {
-  primary: 'rounded-full bg-ink-900 text-white hover:bg-ink-800 active:bg-ink-950',
-  secondary:
-    'rounded-full bg-white text-ink-900 ring-1 ring-inset ring-ink-900/15 hover:bg-ink-50 hover:ring-ink-900/30',
-  inverse: 'rounded-full bg-white text-ink-900 hover:bg-cream',
-  outlineInverse: 'rounded-full text-white ring-1 ring-inset ring-white/30 hover:bg-white/10',
-  ghost: 'text-ink-900 hover:text-brand-blue',
-  ghostInverse: 'text-white/90 hover:text-white',
+  primary: 'rounded-full bg-white text-navy shadow-[0_10px_30px_-10px_rgba(94,234,212,0.45)] hover:bg-tint-blue',
+  white: 'rounded-full bg-white text-navy hover:bg-tint-blue',
+  ghost: 'rounded-full bg-white/10 text-white ring-1 ring-inset ring-white/20 hover:bg-white/15',
+  ghostDark: 'rounded-full bg-white/10 text-white ring-1 ring-inset ring-white/20 hover:bg-white/15',
+  link: 'gap-0.5 text-teal-glow hover:text-white',
+  linkDark: 'gap-0.5 text-teal-glow hover:text-white',
 }
 
 const sizes = {
+  sm: 'h-9 px-4 text-[14px]',
   md: 'h-11 px-5 text-[15px]',
-  lg: 'h-12 px-6 text-base',
+  lg: 'h-12 px-6 text-[16px]',
 }
 
-const isText = (variant) => variant === 'ghost' || variant === 'ghostInverse'
+const isLink = (variant) => variant === 'link' || variant === 'linkDark'
 
 export default function Button({
   to,
   href,
   variant = 'primary',
   size = 'md',
-  arrow = false,
+  chevron = false,
   className,
   children,
   ...rest
 }) {
-  const classes = cn(base, variants[variant], !isText(variant) && sizes[size], className)
+  const classes = cn(base, variants[variant], !isLink(variant) && sizes[size], className)
   const content = (
     <>
       {children}
-      {arrow && (
-        <ArrowRight
-          className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
-          aria-hidden="true"
-        />
-      )}
+      {chevron && <ChevronRight className="-mr-1 h-[1.1em] w-[1.1em]" strokeWidth={2.5} aria-hidden="true" />}
     </>
   )
 

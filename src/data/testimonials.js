@@ -4,17 +4,15 @@ import gain from '../assets/validationteampic.jpg'
 
 export const testimonials = [
   {
-    specialty: 'Interventional cardiology',
     quote:
       "CardioCare's platform mirrors the metrics we track in-clinic. Home based cardiac rehab is a much needed step towards recovery, and making it accessible to all is a worthy endeavor.",
     name: 'Dr. Yogesh Agrawal',
     title: 'Interventional Cardiologist',
     org: 'OSF Healthcare, Illinois',
     image: yogesh,
-    imageAlt: 'Dr. Yogesh Agrawal reviewing a CardioCare demo',
+    imageAlt: 'Dr. Yogesh Agrawal on a video call reviewing the CardioCare demo',
   },
   {
-    specialty: 'Cardiology',
     quote:
       'CardioCare is an innovative, and feasible solution which can impact millions. We see this solution bridging the gap between the care in rehabilitation clinics and at-home.',
     name: 'Dr. Vivek Goswami and team',
@@ -24,7 +22,6 @@ export const testimonials = [
     imageAlt: 'The CardioCare founders presenting the kit to a clinical team',
   },
   {
-    specialty: 'Medical direction',
     quote:
       'We see this as an essential next step. Remote monitoring platforms like CardioCare will redefine outpatient rehabilitation, giving patients confidence in recovery.',
     name: 'Dr. Bharati Kolte',
@@ -41,21 +38,21 @@ export const clinics = [
   { name: 'GAIN Health Clinic', location: 'Texas' },
 ]
 
-export const validated = [
+export const checks = [
   {
-    title: 'Metrics that match the clinic',
-    body: 'Cardiologists confirmed the measures CardioCare tracks line up with what they monitor during supervised rehab.',
+    title: 'The numbers match the clinic',
+    body: 'Cardiologists checked that what the app tracks lines up with what they monitor during supervised rehab.',
   },
   {
-    title: 'Safety thresholds',
-    body: 'Alerting and intensity guidance were reviewed against how clinicians manage cardiac stress in person.',
+    title: 'Safety limits',
+    body: 'The alert thresholds and intensity guidance were reviewed against how clinicians manage cardiac stress in person.',
   },
   {
-    title: 'Usability for patients',
-    body: 'Setup, scanning, and daily sessions were walked through with specialists to keep the experience simple enough for recovery at home.',
+    title: 'Easy enough to do at home',
+    body: 'We walked through setup, scanning, and a full session with specialists to make sure none of it needs a nurse in the room.',
   },
   {
-    title: 'Pilot patient tested',
-    body: 'The platform has been used by pilot patients alongside testing with local cardiac rehabilitation centers.',
+    title: 'Pilot patients',
+    body: 'Pilot patients have used the platform, alongside testing with local cardiac rehab centers.',
   },
 ]

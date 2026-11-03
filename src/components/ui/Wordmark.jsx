@@ -2,16 +2,15 @@ import { Link } from 'react-router-dom'
 
 import { cn } from '../../lib/cn'
 
-/** Text wordmark with the heart mark, for surfaces where the full logo would not read. */
 export default function Wordmark({ className, inverse = false }) {
   return (
     <Link
       to="/"
-      className={cn('inline-flex items-center gap-2.5', inverse ? 'text-white' : 'text-ink-900', className)}
+      className={cn('inline-flex items-center gap-2 font-extrabold tracking-[-0.02em]', inverse ? 'text-white' : 'text-navy', className)}
       aria-label="CardioCare home"
     >
-      <img src="/favicon.png" alt="" className="h-8 w-8" />
-      <span className="font-display text-[1.65rem] leading-none tracking-tight">CardioCare</span>
+      <img src="/favicon.png" alt="" className="h-7 w-7" />
+      <span className="text-[18px]">CardioCare</span>
     </Link>
   )
 }

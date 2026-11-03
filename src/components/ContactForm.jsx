@@ -8,18 +8,18 @@ import { submitContact } from '../lib/submitContact'
 import Button from './ui/Button'
 
 const fieldClass =
-  'w-full rounded-xl border bg-white px-4 py-3 text-ink-900 placeholder:text-ink-400 transition-colors focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/30'
+  'w-full rounded-xl border bg-white/[0.06] px-4 py-3 text-[17px] text-white placeholder:text-white/35 transition-colors focus:border-teal-glow focus:bg-white/[0.08] focus:outline-none focus:ring-4 focus:ring-teal-glow/20'
 
 function Field({ label, id, error, optional, children }) {
   return (
     <div>
-      <label htmlFor={id} className="mb-1.5 flex items-baseline justify-between text-sm font-medium text-ink-800">
+      <label htmlFor={id} className="mb-1.5 flex items-baseline justify-between text-[14px] font-semibold text-white">
         {label}
-        {optional && <span className="text-xs font-normal text-ink-400">Optional</span>}
+        {optional && <span className="font-normal text-white/45">Optional</span>}
       </label>
       {children}
       {error && (
-        <p id={`${id}-error`} className="mt-1.5 text-sm text-brand-coral">
+        <p id={`${id}-error`} className="mt-1.5 text-[14px] text-[#ff8a80]">
           {error}
         </p>
       )}
@@ -29,10 +29,10 @@ function Field({ label, id, error, optional, children }) {
 
 function validate(values) {
   const errors = {}
-  if (!values.name.trim()) errors.name = 'Please tell us your name.'
-  if (!values.email.trim()) errors.email = 'Please add an email address so we can reply.'
+  if (!values.name.trim()) errors.name = 'Add your name.'
+  if (!values.email.trim()) errors.email = 'Add an email address so we can reply.'
   else if (!/^\S+@\S+\.\S+$/.test(values.email)) errors.email = 'That email address does not look right.'
-  if (!values.message.trim()) errors.message = 'Please include a short message.'
+  if (!values.message.trim()) errors.message = 'Add a short message.'
   return errors
 }
 
@@ -74,19 +74,19 @@ export default function ContactForm() {
 
   if (status.state === 'sent') {
     return (
-      <div className="flex h-full flex-col items-start justify-center py-6">
-        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-green/15 text-ink-900">
+      <div className="py-6 text-center">
+        <span className="bg-gradient-brand mx-auto flex h-12 w-12 items-center justify-center rounded-full text-white">
           <Check className="h-6 w-6" aria-hidden="true" />
         </span>
-        <h3 className="display mt-6 text-3xl">
-          {status.method === 'endpoint' ? 'Message received.' : 'Almost there.'}
+        <h3 className="mt-5 text-[24px] font-bold tracking-[-0.01em] text-white">
+          {status.method === 'endpoint' ? 'Got it.' : 'One more step.'}
         </h3>
-        <p className="mt-3 max-w-md text-ink-600">
+        <p className="copy mx-auto mt-2 max-w-md">
           {status.method === 'endpoint'
-            ? `Thanks for reaching out. We reply to every message within ${site.responseTime}.`
-            : `Your email app should have opened with the message ready to send. If it did not, email us directly at ${site.email}.`}
+            ? 'Thanks for writing. We usually reply within a day or two.'
+            : `Your email app should have opened with the message filled in. If it did not, email us at ${site.email}.`}
         </p>
-        <Button variant="secondary" className="mt-8" onClick={reset}>
+        <Button variant="link" className="mt-6" chevron onClick={reset}>
           Send another message
         </Button>
       </div>
@@ -106,8 +106,7 @@ export default function ContactForm() {
             onChange={update}
             aria-invalid={Boolean(errors.name)}
             aria-describedby={errors.name ? 'name-error' : undefined}
-            className={cn(fieldClass, errors.name ? 'border-brand-coral' : 'border-ink-200')}
-            placeholder="Your full name"
+            className={cn(fieldClass, errors.name ? 'border-[#ff8a80]' : 'border-white/15')}
           />
         </Field>
         <Field label="Email" id="email" error={errors.email}>
@@ -120,8 +119,7 @@ export default function ContactForm() {
             onChange={update}
             aria-invalid={Boolean(errors.email)}
             aria-describedby={errors.email ? 'email-error' : undefined}
-            className={cn(fieldClass, errors.email ? 'border-brand-coral' : 'border-ink-200')}
-            placeholder="you@example.com"
+            className={cn(fieldClass, errors.email ? 'border-[#ff8a80]' : 'border-white/15')}
           />
         </Field>
       </div>
@@ -134,19 +132,12 @@ export default function ContactForm() {
           autoComplete="organization"
           value={values.organization}
           onChange={update}
-          className={cn(fieldClass, 'border-ink-200')}
-          placeholder="Clinic, company, or institution"
+          className={cn(fieldClass, 'border-white/15')}
         />
       </Field>
 
-      <Field label="I'm interested in" id="interest">
-        <select
-          id="interest"
-          name="interest"
-          value={values.interest}
-          onChange={update}
-          className={cn(fieldClass, 'border-ink-200')}
-        >
+      <Field label="What are you interested in?" id="interest">
+        <select id="interest" name="interest" value={values.interest} onChange={update} className={cn(fieldClass, 'border-white/15')}>
           {contactInterests.map((item) => (
             <option key={item.value} value={item.value}>
               {item.label}
@@ -164,28 +155,25 @@ export default function ContactForm() {
           onChange={update}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? 'message-error' : undefined}
-          className={cn(fieldClass, 'resize-none', errors.message ? 'border-brand-coral' : 'border-ink-200')}
-          placeholder="Tell us a little about what you have in mind."
+          className={cn(fieldClass, 'resize-none', errors.message ? 'border-[#ff8a80]' : 'border-white/15')}
         />
       </Field>
 
       {status.state === 'error' && (
-        <p role="alert" className="rounded-xl bg-brand-coral/10 px-4 py-3 text-sm text-ink-800">
-          Something went wrong sending your message. Please try again, or email us at{' '}
-          <a href={`mailto:${site.email}`} className="font-medium underline underline-offset-4">
+        <p role="alert" className="rounded-xl bg-[#ff8a80]/15 px-4 py-3 text-[14px] text-white">
+          That did not go through. Try again, or email us at{' '}
+          <a href={`mailto:${site.email}`} className="font-semibold underline">
             {site.email}
           </a>
           .
         </p>
       )}
 
-      <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
         <Button type="submit" size="lg" disabled={status.state === 'submitting'}>
-          {status.state === 'submitting' ? 'Sending' : 'Send message'}
+          {status.state === 'submitting' ? 'Sending' : 'Send'}
         </Button>
-        <p className="text-xs leading-relaxed text-ink-500">
-          We only use your details to reply to you.
-        </p>
+        <p className="text-[12px] text-white/45">We only use this to reply to you.</p>
       </div>
     </form>
   )

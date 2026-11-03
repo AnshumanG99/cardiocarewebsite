@@ -42,12 +42,14 @@ Copy lives in `src/data`, so most wording changes do not touch components.
 
 ## Design system
 
-- Display type: Instrument Serif. Body and UI: Inter (variable). Both are
-  self-hosted through `@fontsource`.
-- Colours are defined in `tailwind.config.js`: the `ink` navy scale for text and
-  dark surfaces, and `brand.*` accents taken from the logo.
-- Reusable classes (`.display`, `.eyebrow`, `.lede`, `.wash`) are in
-  `src/index.css`.
+- Type: the system font stack (SF Pro on Apple devices), with self-hosted Inter
+  as the fallback elsewhere. Scale classes (`.h-hero`, `.h-section`, `.h-tile`,
+  `.lede`, `.copy`) are in `src/index.css`.
+- Colours in `tailwind.config.js`: near-black `ink` text with secondary greys,
+  `surface` light grey for alternating sections and tiles, and `blue` for
+  buttons and links. Dark sections use plain black.
+- Layout: centered headings, flat rounded tiles (`rounded-tile`), no borders,
+  shadows, or scroll animations.
 
 ## Contact form
 

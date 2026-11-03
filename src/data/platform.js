@@ -1,54 +1,57 @@
-import { Activity, BrainCircuit, Gauge, ShieldCheck } from 'lucide-react'
-
 export const steps = [
   {
-    number: '01',
-    title: 'Scan in seconds',
-    body: 'Put on the Bluetooth EKG kit and open the CardioCare app. It records a clinical-quality reading of your heart from wherever you are.',
+    title: 'Scan at home',
+    body: 'Put on the kit and open the app. It records your ECG in seconds.',
+    detail:
+      'The kit is a small wearable with three ECG leads. It connects to your phone over Bluetooth, and the battery lasts more than 20 hours, so you can wear it through a whole session.',
     mock: 'scan',
   },
   {
-    number: '02',
-    title: 'Get a plan built for your heart',
-    body: "CardioCare's model reads your scan and writes a rehab program around it, then adapts the program as you recover.",
+    title: 'A program built from your scan',
+    body: 'The app reads your ECG and writes a rehab program around it. As you get fitter, the program changes with you.',
+    detail:
+      'We trained a model on ECG and EMG signals to classify cardiac stress. The app uses it to set your starting intensity and plan each week. In our testing, its rehab programming was 99% accurate.',
     mock: 'plan',
   },
   {
-    number: '03',
-    title: 'Train with a safety net',
-    body: 'During every session the app tracks cardiac stress, guides you to a safe level of activity, and alerts you the moment something looks off.',
+    title: 'Monitoring while you exercise',
+    body: 'During each session the app tracks your heart, tells you when to push and when to ease off, and alerts you if something looks wrong.',
+    detail:
+      'It watches your heart rate and the stress signal from the ECG the whole time. A reading outside the safe range triggers an alert right away, not after the session.',
     mock: 'session',
   },
 ]
 
 export const features = [
   {
-    icon: Activity,
-    title: 'Hospital-grade signals at home',
-    body: 'A custom wearable records ECG and EMG together, so the app sees both the heart and the muscles doing the work.',
+    title: 'ECG and EMG together',
+    body: 'The wearable records both, so the model sees the heart and the muscles doing the work.',
   },
   {
-    icon: BrainCircuit,
-    title: 'AI-personalized programs',
-    body: 'Programs are generated from your own readings rather than a one-size-fits-all protocol, and they change as your fitness does.',
+    title: 'The model runs on your phone',
+    body: 'Inference runs with TensorFlow Lite on the phone itself. There is no server in the loop.',
   },
   {
-    icon: Gauge,
-    title: 'Real-time feedback',
-    body: 'Live stress monitoring during exercise, with guidance on intensity and immediate alerts when readings leave a safe range.',
+    title: 'Alerts as they happen',
+    body: 'If a reading leaves the safe range, the app tells you immediately.',
   },
   {
-    icon: ShieldCheck,
-    title: 'Privacy by design',
-    body: 'Every reading is processed and stored on your phone with on-device AI. Nothing is sent to the cloud, in line with HIPAA standards.',
+    title: 'Nothing leaves your phone',
+    body: 'Your ECG is processed and stored on the device. It is never uploaded.',
   },
 ]
 
+export const privacyFacts = [
+  { title: 'Runs on the phone', body: 'The model does its work on your device, not on a server.' },
+  { title: 'Nothing uploaded', body: 'Your ECG never leaves the phone, so there is no cloud copy to protect.' },
+  { title: 'Built to HIPAA standards', body: 'Storage and processing are designed to meet HIPAA requirements.' },
+]
+
 export const specs = [
-  { label: 'Signals', value: 'ECG and EMG, multimodal' },
-  { label: 'Inference', value: 'On-device with TensorFlow Lite' },
-  { label: 'Connectivity', value: 'Bluetooth to the CardioCare app' },
-  { label: 'Battery', value: '20+ hours of continuous monitoring' },
-  { label: 'Rehab programming', value: '99% accuracy' },
-  { label: 'Data residency', value: "Stays on the patient's phone" },
+  { label: 'Signals', value: 'ECG and EMG' },
+  { label: 'Model', value: 'TensorFlow Lite, on device' },
+  { label: 'Connection', value: 'Bluetooth' },
+  { label: 'Battery', value: 'More than 20 hours' },
+  { label: 'Programming accuracy', value: '99% in our testing' },
+  { label: 'Data', value: 'Stored on the phone only' },
 ]

@@ -1,11 +1,10 @@
 export const site = {
   name: 'CardioCare',
-  tagline: 'AI-Powered Home Cardiac Rehab',
+  tagline: 'Cardiac rehab at home',
   description:
-    'CardioCare pairs a Bluetooth EKG kit with on-device AI to deliver personalized, monitored cardiac rehabilitation at home. No insurance delays, no long commutes, no financial stress.',
+    'CardioCare is an EKG kit and an app for doing cardiac rehab at home. Scan your heart, get a program built around it, and exercise with your heart rate monitored.',
   email: 'info@cardiocare.fit',
   location: 'Austin, Texas',
-  responseTime: '24 to 48 hours',
 }
 
 export const primaryNav = [
@@ -21,14 +20,14 @@ export const footerNav = [
     links: [
       { label: 'Platform', to: '/platform' },
       { label: 'How it works', to: '/platform#how-it-works' },
-      { label: 'Prototype journey', to: '/platform#prototypes' },
+      { label: 'Prototypes', to: '/platform#prototypes' },
     ],
   },
   {
-    heading: 'Evidence',
+    heading: 'Why',
     links: [
       { label: 'The problem', to: '/impact' },
-      { label: 'Clinical validation', to: '/validation' },
+      { label: 'Validation', to: '/validation' },
       { label: 'Roadmap', to: '/about#roadmap' },
     ],
   },
@@ -43,12 +42,12 @@ export const footerNav = [
 ]
 
 export const contactInterests = [
-  { value: 'demo', label: 'Requesting a demo' },
-  { value: 'clinical', label: 'Clinical pilot or trial participation' },
-  { value: 'partnership', label: 'Partnership opportunities' },
-  { value: 'investment', label: 'Investment inquiry' },
+  { value: 'demo', label: 'A demo' },
+  { value: 'clinical', label: 'A clinical pilot or trial' },
+  { value: 'partnership', label: 'A partnership' },
+  { value: 'investment', label: 'Investing' },
   { value: 'other', label: 'Something else' },
 ]
 
 export const disclaimer =
-  'CardioCare is in development and is not yet FDA-approved for clinical use. Information on this website is for educational purposes only and is not medical advice. Always consult a healthcare professional for medical guidance.'
+  'CardioCare is currently in development and not yet FDA-approved for clinical use. Information provided on this website is for educational purposes only and should not be considered medical advice. Always consult with a healthcare professional for medical guidance.'

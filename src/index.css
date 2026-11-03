@@ -10,57 +10,112 @@
   }
 
   body {
-    @apply bg-white font-sans text-ink-900;
-  }
-
-  ::selection {
-    @apply bg-brand-sky/40 text-ink-950;
+    @apply bg-deep font-sans text-white;
+    font-size: 17px;
+    line-height: 1.5;
   }
 
   :focus-visible {
-    @apply outline-none ring-2 ring-brand-blue ring-offset-2 ring-offset-white;
+    outline: 2px solid #5eead4;
+    outline-offset: 2px;
   }
 
   img,
-  video {
+  video,
+  canvas {
     @apply block max-w-full;
+  }
+
+  select option {
+    color: #0b1437;
+    background: #ffffff;
   }
 }
 
 @layer components {
-  /* Display type: the serif voice used for every headline and pull quote. */
-  .display {
-    @apply font-display font-normal tracking-[-0.02em];
-    line-height: 1.04;
-    font-feature-settings: 'kern' 1, 'liga' 1;
+  .h-hero {
+    @apply text-[40px] font-extrabold leading-[1.04] tracking-[-0.03em] text-white sm:text-[56px] lg:text-[68px];
   }
 
-  .display em {
-    @apply not-italic;
-    font-style: italic;
+  .h-section {
+    @apply text-[30px] font-extrabold leading-[1.1] tracking-[-0.025em] text-white sm:text-[38px] lg:text-[44px];
   }
 
-  .eyebrow {
-    @apply text-[12px] font-medium uppercase tracking-eyebrow text-ink-500;
+  .h-tile {
+    @apply text-[20px] font-bold leading-[1.25] tracking-[-0.01em] text-white sm:text-[22px];
   }
 
   .lede {
-    @apply text-lg leading-relaxed text-ink-600 sm:text-xl;
+    @apply text-[18px] leading-[1.5] text-white/65 sm:text-[20px];
   }
 
-  /* Soft colour wash used behind hero visuals, in the brand's blue/teal/green. */
-  .wash {
-    background:
-      radial-gradient(42% 55% at 30% 60%, rgba(95, 178, 234, 0.55) 0%, rgba(95, 178, 234, 0) 70%),
-      radial-gradient(40% 50% at 70% 55%, rgba(47, 181, 179, 0.45) 0%, rgba(47, 181, 179, 0) 70%),
-      radial-gradient(38% 45% at 50% 95%, rgba(125, 179, 86, 0.4) 0%, rgba(125, 179, 86, 0) 70%),
-      radial-gradient(30% 35% at 50% 30%, rgba(232, 106, 91, 0.18) 0%, rgba(232, 106, 91, 0) 70%);
+  .copy {
+    @apply text-[16px] leading-[1.6] text-white/60 sm:text-[17px];
   }
 
-  .wash-dark {
+  .label {
+    @apply text-[12px] font-bold uppercase tracking-[0.12em] text-teal-glow;
+  }
+
+  /* Frosted panel used instead of white cards. */
+  .glass {
+    @apply rounded-[28px] bg-white/[0.05] ring-1 ring-inset ring-white/10;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  }
+
+  .glass-strong {
+    @apply rounded-[28px] bg-white/[0.08] ring-1 ring-inset ring-white/15;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Logo gradient, blue to teal to green. */
+  .text-gradient {
+    background: linear-gradient(90deg, #7db8ff 0%, #5eead4 55%, #b5e98a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, #2f7fd6 0%, #2fb5b3 55%, #7db356 100%);
+  }
+
+  .bg-hero {
     background:
-      radial-gradient(50% 60% at 50% 100%, rgba(47, 181, 179, 0.35) 0%, rgba(47, 181, 179, 0) 70%),
-      radial-gradient(40% 50% at 20% 110%, rgba(47, 127, 214, 0.35) 0%, rgba(47, 127, 214, 0) 70%),
-      radial-gradient(40% 50% at 80% 110%, rgba(125, 179, 86, 0.25) 0%, rgba(125, 179, 86, 0) 70%);
+      radial-gradient(55% 60% at 78% 62%, rgba(47, 181, 179, 0.36) 0%, rgba(47, 181, 179, 0) 70%),
+      radial-gradient(45% 50% at 12% 18%, rgba(47, 127, 214, 0.38) 0%, rgba(47, 127, 214, 0) 70%),
+      linear-gradient(180deg, #0b1437 0%, #070c24 100%);
+  }
+
+  /* Soft light behind a section. The base stays transparent so sections run into each other. */
+  .glow-left {
+    background: radial-gradient(45% 55% at 0% 45%, rgba(47, 127, 214, 0.26) 0%, rgba(47, 127, 214, 0) 70%);
+  }
+
+  .glow-right {
+    background: radial-gradient(45% 55% at 100% 50%, rgba(47, 181, 179, 0.24) 0%, rgba(47, 181, 179, 0) 70%);
+  }
+
+  .glow-center {
+    background: radial-gradient(55% 60% at 50% 35%, rgba(47, 127, 214, 0.2) 0%, rgba(47, 127, 214, 0) 70%);
+  }
+
+  .glow-bottom {
+    background: radial-gradient(70% 55% at 50% 110%, rgba(47, 181, 179, 0.3) 0%, rgba(47, 181, 179, 0) 70%);
+  }
+
+  /* Travelling ECG pulse along an SVG path. */
+  .ecg-run {
+    stroke-dasharray: 260 3200;
+    animation: ecg-run 9s linear infinite;
+  }
+}
+
+@keyframes ecg-run {
+  from {
+    stroke-dashoffset: 3460;
+  }
+  to {
+    stroke-dashoffset: 0;
   }
 }

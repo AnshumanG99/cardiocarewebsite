@@ -1,40 +1,27 @@
-import { cn } from '../lib/cn'
+import Button from './ui/Button'
 import Container from './ui/Container'
-import Eyebrow from './ui/Eyebrow'
-import Reveal from './ui/Reveal'
+import Orb from './ui/Orb'
 
-/** Header block for every page but the home page. */
-export default function PageHero({ eyebrow, title, lede, actions, aside, compact = false }) {
+/** Page opener: a short title, one line under it, and optional links. */
+export default function PageHero({ label, title, lede, links = [], children }) {
   return (
-    <section
-      className={cn('relative overflow-hidden pt-32 sm:pt-40', compact ? 'pb-10 sm:pb-12' : 'pb-16 sm:pb-20')}
-    >
-      <Container>
-        <div className={cn('grid gap-12', aside && 'lg:grid-cols-12 lg:items-center')}>
-          <div className={cn(aside ? 'lg:col-span-7' : 'max-w-3xl')}>
-            <Reveal>
-              <Eyebrow>{eyebrow}</Eyebrow>
-            </Reveal>
-            <Reveal delay={0.05}>
-              <h1 className={cn('display mt-5 text-5xl sm:text-6xl', aside ? 'xl:text-7xl' : 'lg:text-7xl')}>{title}</h1>
-            </Reveal>
-            {lede && (
-              <Reveal delay={0.1}>
-                <p className="lede mt-6 max-w-2xl">{lede}</p>
-              </Reveal>
-            )}
-            {actions && (
-              <Reveal delay={0.15}>
-                <div className="mt-8 flex flex-wrap gap-3">{actions}</div>
-              </Reveal>
-            )}
+    <section className="relative overflow-hidden pb-12 pt-32 sm:pb-16 sm:pt-40">
+      <Orb color="blue" className="-left-40 top-10" />
+      <Orb color="teal" className="-right-40 top-32" />
+      <Container className="relative text-center">
+        {label && <p className="label mb-4">{label}</p>}
+        <h1 className="h-hero">{title}</h1>
+        {lede && <p className="lede mx-auto mt-4 max-w-text">{lede}</p>}
+        {links.length > 0 && (
+          <div className="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-2 text-[17px] sm:text-[18px]">
+            {links.map((link) => (
+              <Button key={link.label} to={link.to} href={link.href} variant="link" chevron>
+                {link.label}
+              </Button>
+            ))}
           </div>
-          {aside && (
-            <Reveal delay={0.2} className="lg:col-span-5">
-              {aside}
-            </Reveal>
-          )}
-        </div>
+        )}
+        {children}
       </Container>
     </section>
   )

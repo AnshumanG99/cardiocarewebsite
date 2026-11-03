@@ -1,124 +1,107 @@
-import CtaBand from '../components/CtaBand'
+import Closing from '../components/Closing'
 import PageHero from '../components/PageHero'
-import StatGrid from '../components/StatGrid'
+import Stats from '../components/Stats'
 import Container from '../components/ui/Container'
-import Eyebrow from '../components/ui/Eyebrow'
-import Reveal from '../components/ui/Reveal'
+import Heading from '../components/ui/Heading'
 import Section from '../components/ui/Section'
-import SectionHeading from '../components/ui/SectionHeading'
 import Seo from '../components/ui/Seo'
-import { accessByIncome, barriers, impactPillars, problemStats } from '../data/stats'
+import { accessByIncome, barriers, problemStats, whoItHelps } from '../data/stats'
 
 export default function Impact() {
   return (
     <>
       <Seo
         title="Impact"
-        description="Cardiac rehab cuts the risk of a second event, yet most patients never start. The barriers, the numbers, and how CardioCare removes them."
+        description="Cardiac rehab after a heart attack saves lives, but most people never start it. The numbers, the reasons, and what CardioCare changes."
       />
 
-      <PageHero
-        eyebrow="The problem"
-        title={
-          <>
-            Rehab works. <em>Access</em> doesn&rsquo;t.
-          </>
-        }
-        lede="Cardiac rehabilitation lowers the risk of a second event and gets people back to their lives. Most of the people who need it never start, and the reasons have little to do with medicine."
-      />
+      <PageHero label="The problem" title="Rehab saves lives. Most people never start it." />
 
       <Section className="pt-0 sm:pt-0">
-        <Container>
-          <StatGrid stats={problemStats} />
+        <Container size="wide">
+          <p className="lede mx-auto max-w-text text-center">
+            In the U.S., more than 800,000 people have a heart attack every year. People who skip rehab afterward have
+            a 47% higher chance of another event. Even so, only 20 to 30 percent of eligible patients ever go. The
+            reasons are practical: cost, distance, and paperwork.
+          </p>
+          <Stats stats={problemStats} className="mt-12" />
         </Container>
       </Section>
 
-      <Section className="bg-paper">
-        <Container>
-          <SectionHeading
-            eyebrow="Three barriers"
-            title="What keeps patients out, and how CardioCare removes it."
-            layout="stack"
-          />
-          <div className="mt-14 divide-y divide-ink-900/10 border-y border-ink-900/10">
-            {barriers.map((barrier, index) => (
-              <Reveal key={barrier.name} delay={index * 0.05} className="grid gap-6 py-10 lg:grid-cols-12 lg:gap-10">
-                <div className="lg:col-span-3">
-                  <p className="font-display text-3xl text-ink-900">{barrier.name}</p>
-                </div>
+      <Section glow="left">
+        <Container size="wide">
+          <Heading label="Barriers" title="Why people do not go" />
+          <div className="mt-12 divide-y divide-white/10 border-y border-white/10">
+            {barriers.map((barrier) => (
+              <div key={barrier.name} className="grid gap-5 py-9 lg:grid-cols-12 lg:gap-8">
+                <h3 className="text-[24px] font-extrabold tracking-[-0.02em] text-white lg:col-span-3">{barrier.name}</h3>
                 <div className="lg:col-span-4">
-                  <Eyebrow>Today</Eyebrow>
-                  <p className="mt-2 leading-relaxed text-ink-600">{barrier.problem}</p>
+                  <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-white/40">Today</p>
+                  <p className="copy mt-2">{barrier.today}</p>
                 </div>
                 <div className="lg:col-span-5">
-                  <Eyebrow className="text-brand-blue">With CardioCare</Eyebrow>
-                  <p className="mt-2 leading-relaxed text-ink-900">{barrier.answer}</p>
+                  <p className="label">With CardioCare</p>
+                  <p className="mt-2 text-[17px] font-medium leading-[1.55] text-white/90">{barrier.withUs}</p>
                 </div>
-              </Reveal>
+              </div>
             ))}
           </div>
         </Container>
       </Section>
 
-      <Section>
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-12">
-            <Reveal className="lg:col-span-5">
-              <Eyebrow>Around the world</Eyebrow>
-              <h2 className="display mt-4 text-4xl sm:text-5xl">Where you live decides whether rehab exists at all.</h2>
-              <p className="lede mt-5">
-                Cardiac rehabilitation is widely available in wealthy countries and almost absent elsewhere.
-                CardioCare needs a phone and a kit, not a clinic.
+      <Section glow="right">
+        <Container size="wide">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <div>
+              <p className="label mb-4">Around the world</p>
+              <h2 className="h-section">It is worse outside wealthy countries.</h2>
+              <p className="copy mt-4">
+                Availability of cardiac rehab is 60% in high-income countries, 28% in middle-income countries, and 8%
+                in low-income countries. CardioCare needs a phone and a kit, not a clinic, so it can go where programs
+                do not exist.
               </p>
-            </Reveal>
-            <Reveal delay={0.1} className="lg:col-span-6 lg:col-start-7">
-              <figure className="rounded-2xl border border-ink-900/10 p-6 sm:p-8">
-                <figcaption className="text-sm font-medium text-ink-900">
-                  Availability of cardiac rehab programs, by country income level
-                </figcaption>
-                <ul className="mt-6 space-y-5">
-                  {accessByIncome.map((row) => (
-                    <li key={row.label}>
-                      <div className="flex items-baseline justify-between gap-4 text-sm">
-                        <span className="text-ink-700">{row.label}</span>
-                        <span className="font-medium tabular-nums text-ink-900">{row.value}%</span>
-                      </div>
-                      <div className="mt-2 h-2.5 overflow-hidden rounded-r bg-ink-100" aria-hidden="true">
-                        <div className="h-full rounded-r bg-brand-blue" style={{ width: `${row.value}%` }} />
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </figure>
-            </Reveal>
+            </div>
+            <figure className="glass p-7 sm:p-8">
+              <figcaption className="text-[14px] font-bold text-white">Cardiac rehab availability by country income level</figcaption>
+              <ul className="mt-6 space-y-5">
+                {accessByIncome.map((row) => (
+                  <li key={row.label}>
+                    <div className="flex items-baseline justify-between gap-4 text-[14px]">
+                      <span className="text-white/80">{row.label}</span>
+                      <span className="font-bold tabular-nums text-white">{row.value}%</span>
+                    </div>
+                    <div className="mt-2 h-2.5 overflow-hidden rounded-r bg-white/10" aria-hidden="true">
+                      <div className="bg-gradient-brand h-full rounded-r" style={{ width: `${row.value}%` }} />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </figure>
           </div>
         </Container>
       </Section>
 
-      <Section className="bg-paper">
-        <Container>
-          <SectionHeading eyebrow="Social impact" title="Rehab for every heart, not only the insured ones." layout="stack" />
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {impactPillars.map((pillar, index) => (
-              <Reveal
-                key={pillar.title}
-                delay={index * 0.08}
-                className="rounded-[1.5rem] bg-white p-8 ring-1 ring-ink-900/[0.06]"
-              >
-                <p className="font-display text-3xl text-ink-400">0{index + 1}</p>
-                <h3 className="mt-4 text-xl font-medium text-ink-900">{pillar.title}</h3>
-                <p className="mt-3 leading-relaxed text-ink-600">{pillar.body}</p>
-              </Reveal>
+      <Section glow="center">
+        <Container size="wide">
+          <Heading label="Who it helps" title="Who this is for" />
+          <div className="mt-12 grid gap-8 md:grid-cols-3 md:gap-6">
+            {whoItHelps.map((item, index) => (
+              <div key={item.title}>
+                <span className="bg-gradient-brand inline-flex h-10 w-10 items-center justify-center rounded-full text-[15px] font-extrabold text-white">
+                  {index + 1}
+                </span>
+                <h3 className="h-tile mt-4">{item.title}</h3>
+                <p className="copy mt-2">{item.body}</p>
+              </div>
             ))}
           </div>
         </Container>
       </Section>
 
-      <CtaBand
-        title="Help us close the gap."
-        body="Whether you run a clinic, back early companies, or want CardioCare for someone you love, we would like to hear from you."
+      <Closing
+        title="Help us fix this."
+        body="If you run a clinic, back early companies, or want CardioCare for someone in your family, get in touch."
         primary={{ label: 'Get in touch', to: '/contact' }}
-        secondary={{ label: 'See the platform', to: '/platform' }}
       />
     </>
   )
