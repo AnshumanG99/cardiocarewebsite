@@ -1,4 +1,4 @@
-import { FlaskConical, Rocket, Trophy } from 'lucide-react'
+import { FlaskConical, Rocket } from 'lucide-react'
 
 import Closing from '../components/Closing'
 import PageHero from '../components/PageHero'
@@ -11,7 +11,6 @@ import { roadmap } from '../data/roadmap'
 import { founders, mission, recognition, story, team } from '../data/team'
 
 const recognitionIcons = {
-  'DECA ICDC': Trophy,
   'Conrad Challenge': Rocket,
   'Georgia Tech': FlaskConical,
 }
@@ -19,9 +18,9 @@ const recognitionIcons = {
 export default function About() {
   return (
     <>
-      <Seo title="About" description="CardioCare is built by four students, two in Austin and two at Yale. Who we are, where we are, and what comes next." />
+      <Seo title="About" description="CardioCare is built by three students, one in Austin and two at Yale. Who we are, where we are, and what comes next." />
 
-      <PageHero label="About" title="The team behind CardioCare." lede="Four students, two in Austin and two at Yale." />
+      <PageHero label="About" title="The team behind CardioCare." lede="Three students, one in Austin and two at Yale." />
 
       <Section className="pt-0 sm:pt-0">
         <Container>
@@ -53,7 +52,7 @@ export default function About() {
             <blockquote className="mx-auto max-w-[820px] text-[22px] font-medium leading-[1.4] tracking-[-0.01em] text-white/90 sm:text-[26px]">
               &ldquo;{mission}&rdquo;
             </blockquote>
-            <figcaption className="mt-4 text-[15px] text-white/50">Anshuman and Ayan</figcaption>
+            <figcaption className="mt-4 text-[15px] text-white/50">Anshuman Garg, founder</figcaption>
           </figure>
         </Container>
       </Section>
@@ -70,7 +69,7 @@ export default function About() {
       <Section id="recognition" glow="center">
         <Container size="wide">
           <Heading label="Recognition" title="Where we have been recognized" />
-          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-12 grid gap-4 sm:grid-cols-3">
             {recognition.map((item) => {
               const Icon = recognitionIcons[item.name]
               return (

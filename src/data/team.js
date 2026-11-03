@@ -1,5 +1,4 @@
 import anshuman from '../assets/anshumanheadshot.jpeg'
-import ayan from '../assets/ayanheadshot.jpg'
 import patrick from '../assets/patrickheadshot.jpg'
 import rushil from '../assets/rushilheadshot.jpg'
 import diamondBadge from '../assets/diamondchallengebadge.png'
@@ -7,15 +6,9 @@ import diamondBadge from '../assets/diamondchallengebadge.png'
 export const founders = [
   {
     name: 'Anshuman Garg',
-    role: 'Co-founder',
+    role: 'Founder',
     bio: 'Anshuman is a senior at Westwood High School and does computational biology research at Georgia Tech. Outside of CardioCare he codes, builds robots, and plays saxophone.',
     image: anshuman,
-  },
-  {
-    name: 'Ayan Malpani',
-    role: 'Co-founder',
-    bio: 'Ayan is a senior at Round Rock High School and won first place at the DECA International Career Development Conference. He is interested in entrepreneurship in healthcare. Outside of CardioCare he plays soccer, writes, and travels.',
-    image: ayan,
   },
 ]
 
@@ -47,10 +40,6 @@ export const recognition = [
     name: 'Diamond Challenge',
     detail: 'Global finalist, Limitless World Summit',
     image: diamondBadge,
-  },
-  {
-    name: 'DECA ICDC',
-    detail: 'First place, International Career Development Conference',
   },
   {
     name: 'Conrad Challenge',
