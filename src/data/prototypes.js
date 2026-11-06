@@ -13,7 +13,7 @@ export const prototypes = [
   },
   {
     version: 'V1',
-    period: 'Nov 2024 to Mar 2025',
+    period: 'Nov 2024 to Mar 2026',
     title: 'First handheld',
     body: 'A handheld case with a battery, and the first version of the app. More than 20 hours of monitoring, running a TensorFlow Lite model.',
     image: prototype2,
@@ -21,7 +21,7 @@ export const prototypes = [
   },
   {
     version: 'V2',
-    period: 'May 2025 to now',
+    period: 'Mar 2026 to present',
     title: 'Current version',
     body: 'Adds EMG alongside ECG. This is the version going into clinical trials.',
     image: prototype3,
