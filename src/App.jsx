@@ -1,75 +1,46 @@
-import { lazy, Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Hero from './sections/Hero';
+import ProblemStatement from './sections/ProblemStatement';
+import Solution from './sections/Solution';
+import Progress from './sections/Progress';
+import Impact from './sections/Impact';
+import Team from './sections/Team';
+import Contact from './sections/Contact';
+import ValidationSection from './sections/Validation';
 
-import Layout from './components/layout/Layout'
-import Home from './pages/Home'
+function App() {
+  // Add smooth scrolling behavior
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+  }, []);
 
-const Platform = lazy(() => import('./pages/Platform'))
-const Impact = lazy(() => import('./pages/Impact'))
-const Validation = lazy(() => import('./pages/Validation'))
-const About = lazy(() => import('./pages/About'))
-const Contact = lazy(() => import('./pages/Contact'))
-const NotFound = lazy(() => import('./pages/NotFound'))
-
-/** Keeps the layout stable while a route chunk loads. */
-function RouteFallback() {
-  return <div className="min-h-screen" aria-hidden="true" />
-}
-
-export default function App() {
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route
-          path="platform"
-          element={
-            <Suspense fallback={<RouteFallback />}>
-              <Platform />
-            </Suspense>
-          }
-        />
-        <Route
-          path="impact"
-          element={
-            <Suspense fallback={<RouteFallback />}>
-              <Impact />
-            </Suspense>
-          }
-        />
-        <Route
-          path="validation"
-          element={
-            <Suspense fallback={<RouteFallback />}>
-              <Validation />
-            </Suspense>
-          }
-        />
-        <Route
-          path="about"
-          element={
-            <Suspense fallback={<RouteFallback />}>
-              <About />
-            </Suspense>
-          }
-        />
-        <Route
-          path="contact"
-          element={
-            <Suspense fallback={<RouteFallback />}>
-              <Contact />
-            </Suspense>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <Suspense fallback={<RouteFallback />}>
-              <NotFound />
-            </Suspense>
-          }
-        />
-      </Route>
-    </Routes>
-  )
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <Navbar />
+
+      {/* Main Content */}
+      <main>
+        <Hero />
+        <ProblemStatement />
+        <Solution />
+        <Progress />
+        <Impact />
+        <Team />
+        <ValidationSection />
+        <Contact />
+      </main>
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Vercel Analytics */}
+      <Analytics />
+    </div>
+  );
 }
+
+export default App;
